@@ -11,15 +11,18 @@ const CarCard = ({ car }) => {
           <h5>{car.model}</h5>
         </div>
         <div className="price-badge">
-          <span>${car.price}</span><small>per day</small>
+          <span>${car.price}</span>
+          <small>per day</small>
         </div>
       </div>
       <div className="car-card-meta">
         <small><i className="fa-solid fa-cog"></i>{car.gearbox}</small>
-        <small><i className="fa-solid fa-gas-pump"></i> {car.fuel}</small>
+        <small><i className="fa-solid fa-gas-pump"></i>{car.fuel}</small>
         <small><i className="fa-solid fa-snowflake"></i>Air Conditioner</small>
       </div>
-      <Link to={`/details/${car.id}`} className="btn">View Details</Link>
+      <Link to={`/details/${car.id}`} className="btn">
+        View Details
+      </Link>
     </article>
   );
 };

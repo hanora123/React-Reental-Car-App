@@ -4,19 +4,21 @@ import CarCard from '../components/CarCard';
 
 const Vehicles = () => {
   return (
-    <main className="hero" role="main">
-      <section className="other-cars" aria-labelledby="vehicles-title">
-        <div className="other-cars-header">
+    <main className="vehicles-page" role="main">
+      <div className="vehicles-container">
+        <section className="vehicles-header" aria-labelledby="vehicles-title">
           <h1 id="vehicles-title">Available Vehicles</h1>
           <p>Choose from our premium selection of rental cars</p>
-        </div>
+        </section>
 
-        <div className="car-list">
-          {cars.map(car => (
-            <CarCard key={car.id} car={car} />
-          ))}
-        </div>
-      </section>
+        <section className="vehicles-grid" aria-label="Vehicle Catalog">
+          <div className="car-list">
+            {cars.map(car => (
+              <CarCard key={car.id} car={car} />
+            ))}
+          </div>
+        </section>
+      </div>
     </main>
   );
 };

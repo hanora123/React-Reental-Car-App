@@ -47,7 +47,7 @@ const Details = () => {
         {car.equipment && (
           <div className="car-equipment">
             <h2 className="section-title">Car Equipment</h2>
-            <ul className="equipment-list" role="list" aria-label="Car Equipment List">
+            <ul className="equipment-list" aria-label="Car Equipment List">
               {car.equipment.map((item, index) => (
                 <li key={index}>
                   <span className="checkbox-custom checked" aria-hidden="true"></span>
@@ -63,7 +63,7 @@ const Details = () => {
       <section className="other-cars" aria-labelledby="other-cars-title">
         <div className="other-cars-header">
           <h3 id="other-cars-title">Other cars</h3>
-          <a href="#">View All ➔</a>
+          <button className="footer-link">View All ➔</button>
         </div>
 
         <div className="car-list">

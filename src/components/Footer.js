@@ -28,22 +28,22 @@ const Footer = () => {
           <p>Premium rentals with great support and easy booking.</p>
 
           <div className="store-badges">
-            <a className="store-badge appstore" href="#" aria-label="Download on the App Store">
+            <button className="store-badge appstore" aria-label="Download on the App Store">
               <i className="fa-brands fa-apple"></i>
               <span className="small">Download on the</span>
               <span className="big">App Store</span>
-            </a>
-            <a className="store-badge play" href="#" aria-label="Get it on Google Play">
+            </button>
+            <button className="store-badge play" aria-label="Get it on Google Play">
               <i className="fa-brands fa-google-play"></i>
               <span className="small">GET IT ON</span>
               <span className="big">Google Play</span>
-            </a>
+            </button>
           </div>
 
           <div className="socials">
-            <a href="#"><i className="fa-brands fa-facebook"></i></a>
-            <a href="#"><i className="fa-brands fa-instagram"></i></a>
-            <a href="#"><i className="fa-brands fa-x-twitter"></i></a>
+            <button aria-label="Facebook"><i className="fa-brands fa-facebook"></i></button>
+            <button aria-label="Instagram"><i className="fa-brands fa-instagram"></i></button>
+            <button aria-label="Twitter"><i className="fa-brands fa-x-twitter"></i></button>
           </div>
         </div>
 
@@ -61,9 +61,9 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Support</h4>
           <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Privacy</a></li>
+            <li><button className="footer-link">FAQ</button></li>
+            <li><button className="footer-link">Terms</button></li>
+            <li><button className="footer-link">Privacy</button></li>
           </ul>
         </div>
       </div>
