@@ -4,7 +4,7 @@ import { getCarById, cars } from '../data/cars';
 import SpecCard from '../components/SpecCard';
 import CarCard from '../components/CarCard';
 
-const Details = () => {
+const Details = ({ openModal }) => {
   const { id = 1 } = useParams(); // Default to ID 1 if not present
   const car = getCarById(id);
 
@@ -59,7 +59,7 @@ const Details = () => {
             ))}
           </div>
 
-          <button className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 mb-8 btn-hover" aria-label="Rent this car">Rent a car</button>
+          <button onClick={() => openModal(car.id)} className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 mb-8 btn-hover" aria-label="Rent this car">Rent a car</button>
 
           {car.equipment && (
             <div>

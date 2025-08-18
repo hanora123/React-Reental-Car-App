@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Modal from './Modal';
+import RentCarForm from './RentCarForm';
 
-const Header = () => {
+const Header = ({ openModal, isModalOpen, closeModal, cars, selectedCar }) => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -39,13 +41,33 @@ const Header = () => {
         </div>
 
         {/* Navigation Menu */}
-        <nav className={`absolute md:relative top-16 left-0 md:top-0 md:left-auto w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none ${isMenuOpen ? 'block' : 'hidden'} md:flex md:items-center md:gap-4`} aria-label="Primary">
-          <Link to="/" className={`block md:inline-block px-4 py-2 rounded-lg ${isActive('/')} link-hover`} onClick={closeMenu}>Home</Link>
-          <Link to="/vehicles" className={`block md:inline-block px-4 py-2 rounded-lg ${isActive('/vehicles')} link-hover`} onClick={closeMenu}>Vehicles</Link>
-          <Link to="/details" className={`block md:inline-block px-4 py-2 rounded-lg ${isActive('/details')} link-hover`} onClick={closeMenu}>Details</Link>
-          <Link to="/about" className={`block md:inline-block px-4 py-2 rounded-lg ${isActive('/about')} link-hover`} onClick={closeMenu}>About Us</Link>
-          <Link to="/contact" className={`block md:inline-block px-4 py-2 rounded-lg ${isActive('/contact')} link-hover`} onClick={closeMenu}>Contact Us</Link>
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex md:items-center md:gap-4" aria-label="Primary">
+          <Link to="/" className={`px-4 py-2 rounded-lg ${isActive('/')} link-hover`}>Home</Link>
+          <Link to="/vehicles" className={`px-4 py-2 rounded-lg ${isActive('/vehicles')} link-hover`}>Vehicles</Link>
+          <Link to="/details" className={`px-4 py-2 rounded-lg ${isActive('/details')} link-hover`}>Details</Link>
+          <Link to="/about" className={`px-4 py-2 rounded-lg ${isActive('/about')} link-hover`}>About Us</Link>
+          <Link to="/contact" className={`px-4 py-2 rounded-lg ${isActive('/contact')} link-hover`}>Contact Us</Link>
+          <Link to="/login" className={`px-4 py-2 rounded-lg ${isActive('/login')} link-hover`}>Sign In</Link>
         </nav>
+
+        {/* Mobile Menu Overlay */}
+        {isMenuOpen && (
+          <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center md:hidden">
+            <button onClick={closeMenu} className="absolute top-4 right-4 text-gray-700 text-3xl" aria-label="Close menu">
+              &times;
+            </button>
+            <nav className="flex flex-col items-center gap-6 text-2xl">
+              <Link to="/" className={`px-4 py-2 rounded-lg ${isActive('/')}`} onClick={closeMenu}>Home</Link>
+              <Link to="/vehicles" className={`px-4 py-2 rounded-lg ${isActive('/vehicles')}`} onClick={closeMenu}>Vehicles</Link>
+              <Link to="/details" className={`px-4 py-2 rounded-lg ${isActive('/details')}`} onClick={closeMenu}>Details</Link>
+              <Link to="/about" className={`px-4 py-2 rounded-lg ${isActive('/about')}`} onClick={closeMenu}>About Us</Link>
+              <Link to="/contact" className={`px-4 py-2 rounded-lg ${isActive('/contact')}`} onClick={closeMenu}>Contact Us</Link>
+              <Link to="/login" className={`px-4 py-2 rounded-lg ${isActive('/login')}`} onClick={closeMenu}>Sign In</Link>
+              <button onClick={() => { closeMenu(); openModal(); }} className="bg-indigo-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-indigo-700 btn-hover">Book Now</button>
+            </nav>
+          </div>
+        )}
 
         {/* Desktop Contact Info */}
         <div className="hidden md:flex items-center gap-4">
@@ -55,14 +77,12 @@ const Header = () => {
             </div>
             <a className="font-semibold" href="tel:+123456789">+123 456 6789</a>
           </div>
-          <button className="bg-indigo-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-indigo-700 btn-hover">Book Now</button>
+          <button onClick={() => openModal()} className="bg-indigo-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-indigo-700 btn-hover">Book Now</button>
         </div>
-
-        {/* Mobile Menu Overlay */}
-        {isMenuOpen && (
-          <div className="fixed inset-0 bg-black opacity-50 z-10" onClick={closeMenu}></div>
-        )}
       </div>
+      <Modal isOpen={isModalOpen} onClose={closeModal} title="Rent a Car">
+        <RentCarForm cars={cars} selectedCar={selectedCar} />
+      </Modal>
     </header>
   );
 };
