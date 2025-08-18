@@ -32,7 +32,7 @@ You need to have Node.js and npm (Node Package Manager) installed on your system
 
 1.  **Clone the repository:**
     ```sh
-    git clone <repository-url>
+    git clone https://github.com/hanora123/React-Reental-Car-App
     ```
 2.  **Navigate to the project directory:**
     ```sh
@@ -87,25 +87,25 @@ The project follows a standard React application structure. Here's an overview o
 
 ### Component Breakdown
 
--   **`App.js`**: The root component that orchestrates the entire application. It sets up the main layout (Header, Footer) and manages the routing.
+- **`App.js`**: The root component that orchestrates the entire application. It sets up the main layout (Header, Footer) and manages the routing.
 
--   **`Header.js` / `Footer.js`**: These are layout components that appear on every page, providing consistent navigation and information.
+- **`Header.js` / `Footer.js`**: These are layout components that appear on every page, providing consistent navigation and information.
 
--   **`Vehicles.js`**: A page component that fetches the list of all cars from `src/data/cars.js` and renders a `CarCard` for each one.
+- **`Vehicles.js`**: A page component that fetches the list of all cars from `src/data/cars.js` and renders a `CarCard` for each one.
 
--   **`CarCard.js`**: A reusable component that displays a summary of a single car (image, brand, model, price). It links to the car's dedicated details page.
+- **`CarCard.js`**: A reusable component that displays a summary of a single car (image, brand, model, price). It links to the car's dedicated details page.
 
--   **`Details.js`**: A page component that displays the full information for a single car. It is a dynamic page that changes based on the car's ID in the URL.
+- **`Details.js`**: A page component that displays the full information for a single car. It is a dynamic page that changes based on the car's ID in the URL.
 
--   **`SpecCard.js`**: A small, reusable component used on the `Details` page to display a single technical specification with an icon.
+- **`SpecCard.js`**: A small, reusable component used on the `Details` page to display a single technical specification with an icon.
 
 ### Routing
 
 The project uses `react-router-dom` to handle navigation. The routing logic is defined in `src/App.js`.
 
--   The application uses a URL structure like `/vehicles` to show the list of cars and `/details/:id` for individual car pages.
--   The `:id` in the URL is a **parameter**. The `Details.js` page uses the `useParams` hook to get this ID, fetch the correct car's data, and display it.
--   A default route to `/details` is also set up to show the details for the first car.
+- The application uses a URL structure like `/vehicles` to show the list of cars and `/details/:id` for individual car pages.
+- The `:id` in the URL is a **parameter**. The `Details.js` page uses the `useParams` hook to get this ID, fetch the correct car's data, and display it.
+- A default route to `/details` is also set up to show the details for the first car.
 
 ### Data Flow
 
@@ -117,7 +117,7 @@ The project uses `react-router-dom` to handle navigation. The routing logic is d
 
 The project is styled using **Tailwind CSS**.
 
--   Global styles and Tailwind's base layers are configured in `src/index.css`.
--   Custom hover effects (`btn-hover`, `card-hover`, `link-hover`) have been added to `src/index.css` to enhance interactivity.
--   Styling is applied directly in the components using Tailwind's utility classes (e.g., `bg-white`, `font-bold`, `rounded-lg`). This makes it easy to style components without writing separate CSS files.
--   The `tailwind.config.js` file can be used to customize the default theme (colors, fonts, spacing, etc.).
+- Global styles and Tailwind's base layers are configured in `src/index.css`.
+- Custom hover effects (`btn-hover`, `card-hover`, `link-hover`) have been added to `src/index.css` to enhance interactivity.
+- Styling is applied directly in the components using Tailwind's utility classes (e.g., `bg-white`, `font-bold`, `rounded-lg`). This makes it easy to style components without writing separate CSS files.
+- The `tailwind.config.js` file can be used to customize the default theme (colors, fonts, spacing, etc.).
