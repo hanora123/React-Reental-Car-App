@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import maybachPremiumImg from '../images/cars/maybach-transparent.png';
+import React, { useState } from 'react';
 import sedanImg from '../images/cars/sedan.png';
 import suvImg from '../images/cars/suv.png';
 import mercedesPremiumImg from '../images/cars/mer-premium.png';
@@ -8,17 +7,31 @@ import toyotaCrossoverImg from '../images/cars/toyota-crossover.png';
 import mercedesVanImg from '../images/cars/mercedes-van.png';
 import toyotaSedanImg from '../images/cars/toyota-sedan.png';
 import defaultCarImg from '../images/cars/22124bcfd303fe6ed4c56d7e9052d896.png';
+import mapPinIcon from '../images/icons/map-pin.png';
+import mailIcon from '../images/icons/mail.png';
+import phoneIcon from '../images/icons/Vector (1).png';
+import clockIcon from '../images/icons/clock.png';
+import clockInsideIcon from '../images/icons/clock-inside.png';
+import logosIcon from '../images/icons/Logos.png';
 
 const carImages = {
-  'default': {defaultCarImg},
-  'mercedes-sedan': {sedanImg},
-  'mercedes-suv': {suvImg},
-  'mercedes-premium': {mercedesPremiumImg},
-  'porsche-premium': {porschePremiumImg},
-  'toyota-crossover': {toyotaCrossoverImg},
-  'mercedes-van': {mercedesVanImg},
-  'toyota-sedan': {toyotaSedanImg},
-  'maybach-premium': {maybachPremiumImg}
+  'default': defaultCarImg,
+  'mercedes-sedan': sedanImg,
+  'mercedes-suv': suvImg,
+  'mercedes-premium': mercedesPremiumImg,
+  'porsche-premium': porschePremiumImg,
+  'toyota-crossover': toyotaCrossoverImg,
+  'mercedes-van': mercedesVanImg,
+  'toyota-sedan': toyotaSedanImg
+};
+
+const iconImages = {
+  mapPin: mapPinIcon,
+  mail: mailIcon,
+  phone: phoneIcon,
+  clock: clockIcon,
+  clockInside: clockInsideIcon,
+  logos: logosIcon
 };
 
 const ContactPage = () => {
@@ -134,20 +147,20 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen">
-     
-      <div id="notificationContainer" className="fixed top-4 right-4 z-50">
-        {notification && (
+      <div className="max-w-full">
+        <div className="w[80] flex justify-center">
           <div className={`${getNotificationStyles()} translate-x-0`}>
-            {notification.message}
+            {notification?.message}
           </div>
-        )}
+        </div>
       </div>
       
       <div className="title pt-4 lg:text-5xl">
         <h1 className="capitalize text-center mt-2">contact us</h1>
         <div className="pre text-center">
-          <span className="preTitle cursor-pointer">Home/</span>
-          <span className="preTitle cursor-pointer">Contact Us</span>
+           <p className="text-gray-500 mt-6">
+            Home / <span className="text-gray-800 font-semibold">Contact Us</span>
+          </p>
         </div>
       </div>
       
@@ -171,7 +184,7 @@ const ContactPage = () => {
             <option value="toyota-crossover">Toyota-crossover</option>
             <option value="mercedes-van">Mercedes-van</option>
             <option value="toyota-sedan">Toyota-sedan</option>
-            <option value="maybach-premium">Maybach-premium</option>
+           
           </select>
           
           <select
@@ -263,7 +276,7 @@ const ContactPage = () => {
       
         <div className="flex items-center space-x-3 w-full sm:w-auto max-w-xs mx-auto sm:mx-0">
           <span className="bg-orange-500 rounded-full p-3 flex items-center justify-center flex-shrink-0">
-            <img className="h-6 w-6 text-white icons" src="src/images/icons/map-pin.png" alt="" />
+            <img className="h-6 w-6 text-white icons" src={mapPinIcon} alt="" />
           </span>
           <div>
             <div className="text-gray-500 font-medium">Address</div>
@@ -274,7 +287,7 @@ const ContactPage = () => {
       
         <div className="flex items-center space-x-3 w-full sm:w-auto max-w-xs mx-auto sm:mx-0">
           <span className="bg-orange-500 rounded-full p-3 flex items-center justify-center flex-shrink-0">
-            <img className="h-6 w-6 text-white icons" src="src/images/icons/mail.png" alt="" />
+            <img className="h-6 w-6 text-white icons" src={iconImages.mail} alt="" />
           </span>
           <div>
             <div className="text-gray-500 font-medium">Email</div>
@@ -285,7 +298,7 @@ const ContactPage = () => {
       
         <div className="flex items-center space-x-3 w-full sm:w-auto max-w-xs mx-auto sm:mx-0">
           <span className="bg-orange-500 rounded-full p-3 flex items-center justify-center flex-shrink-0">
-            <img className="h-6 w-6 text-white icons" src="src/images/icons/Vector (1).png" alt="" />
+            <img className="h-6 w-6 text-white icons" src={iconImages.phone} alt="" />
           </span>
           <div>
             <div className="text-gray-500 font-medium">Phone</div>
@@ -296,8 +309,8 @@ const ContactPage = () => {
        
         <div className="flex items-center space-x-3 w-full sm:w-auto max-w-xs mx-auto sm:mx-0">
           <span className="bg-orange-500 rounded-full p-3 flex items-center justify-center flex-shrink-0">
-            <img className="relative h-6 w-6 text-white icons" src="src/images/icons/clock.png" alt="" />
-            <img className="absolute" src="src/images/icons/clock-inside.png" alt="" />
+            <img className="relative h-6 w-6 text-white icons" src={iconImages.clock} alt="" />
+            <img className="absolute" src={iconImages.clockInside} alt="" />
           </span>
           <div>
             <div className="text-gray-500 font-medium">Opening hours</div>
@@ -355,7 +368,7 @@ const ContactPage = () => {
       
       <div className="max-w-full">
         <div className="w[80] flex justify-center">
-          <img className="mt-5" src="src/images/icons/Logos.png" alt="" />
+          <img className="mt-3 mb-3" src={logosIcon} alt="" />
         </div>
       </div>
       
